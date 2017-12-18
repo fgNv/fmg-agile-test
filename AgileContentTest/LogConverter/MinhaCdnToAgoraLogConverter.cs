@@ -29,7 +29,7 @@ namespace AgileContentTest
             header += $"#Date: {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}{Environment.NewLine}";
             header += "#Fields: provider http-method status-code uri-path time-taken response-size cache-status";
 
-            var inputRows = input.Split(Environment.NewLine);
+            var inputRows = input.Split(Environment.NewLine).Where(row => !String.IsNullOrWhiteSpace(row));
 
             var convertedRows = inputRows.Select(row =>
             {

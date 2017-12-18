@@ -20,9 +20,10 @@ namespace AgileContentTest.Tests
         }
 
         [TestMethod]
-        public async Task ConvertLog()
+        public async Task SampleLogContentConvertionShouldMatchExpectedResult()
         {
-            var sourceUrl = "https://docs.google.com/document/d/1QH3RhRZnoJJMmKbA8Nt3Ax15lQYKyVcmAm8CAEux36o/export?format=txt";
+            var sourceUrl = "https://s3.amazonaws.com/uux-itaas-static/minha-cdn-logs/input-01.txt";
+            //var sourceUrl = "https://s3.amazonaws.com/uux-itaas-static/minha-cdn-logs/input-01.txt";
             var converter = new MinhaCdnToAgoraLogConverter();
             var application = new LogConverterApplication(converter);
             await application.ConvertMinhaCdnToAgora(sourceUrl, _destinationPath);
